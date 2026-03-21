@@ -45,4 +45,14 @@ ul {
 .btn-primary:hover {
   background-color: #e04e2e;
   transform: scale(1.05);
+}/* Screen ko side mein hilne se bilkul rokne ke liye */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
+}
+
+/* Sabhi elements ko screen ke andar rakhne ke liye */
+* {
+  box-sizing: border-box;
 }
