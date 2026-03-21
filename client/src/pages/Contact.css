@@ -1,0 +1,202 @@
+/* ===== PAGE ===== */
+.contact-page {
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  color: #111;
+  overflow-x: hidden;
+}
+
+/* ===== HERO (BEAUTIFUL + ANIMATED) ===== */
+.contact-hero {
+  height: 50vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    #0f2027,
+    #203a43,
+    #2c5364
+  );
+  overflow: hidden;
+}
+
+/* animated glow */
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(22,163,74,0.35), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255,255,255,0.12), transparent 50%);
+  animation: heroGlow 10s ease-in-out infinite alternate;
+}
+
+/* moving tech lines */
+.contact-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    120deg,
+    rgba(255,255,255,0.06) 0px,
+    rgba(255,255,255,0.06) 1px,
+    transparent 1px,
+    transparent 70px
+  );
+  animation: heroLines 25s linear infinite;
+  opacity: 0.35;
+}
+
+@keyframes heroGlow {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+
+@keyframes heroLines {
+  from { background-position: 0 0; }
+  to { background-position: 800px 800px; }
+}
+
+.contact-hero h1 {
+  color: #fff;
+  font-size: 3.2rem;
+  letter-spacing: 3px;
+  z-index: 2;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* ===== CONTAINER ===== */
+.contact-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 80px 20px;
+}
+
+.contact-container h2 {
+  font-size: 2.2rem;
+  margin-bottom: 45px;
+  position: relative;
+}
+
+.contact-container h2::after {
+  content: "";
+  width: 60px;
+  height: 4px;
+  background: #16a34a;
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  border-radius: 10px;
+}
+
+/* ===== CARDS (FLOATING EFFECT) ===== */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+.contact-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 22px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  border-left: 6px solid #16a34a;
+  position: relative;
+}
+
+/* floating hover */
+.contact-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.18);
+}
+
+/* glowing border */
+.contact-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+  border: 1px solid rgba(22,163,74,0.35);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.contact-card:hover::after {
+  opacity: 1;
+}
+
+/* icon */
+.contact-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 10px 25px rgba(22,163,74,0.4);
+}
+
+.contact-card h4 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.contact-card p {
+  color: #444;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* ===== CALL BAR (MODERN) ===== */
+.contact-call-bar {
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(135deg, #f9fafb, #ffffff);
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+  gap: 14px;
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.08);
+}
+
+.call-buttons a {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color: #fff;
+  padding: 9px 16px;
+  border-radius: 30px;
+  margin-left: 8px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.call-buttons a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(22,163,74,0.45);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .contact-hero h1 {
+    font-size: 2.3rem;
+  }
+
+  .contact-call-bar {
+    flex-direction: column;
+    text-align: center;
+  }
+}

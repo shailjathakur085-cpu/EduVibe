@@ -1,0 +1,91 @@
+/* Auth.css - Dark & Orange Theme */
+.auth-container {
+  min-height: 100vh;
+  background-color: #050505; /* Deep Dark Background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-card {
+  background-color: #121212; /* Slightly lighter card */
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 8px 30px rgba(255, 87, 51, 0.08); /* Orange Glow */
+  text-align: center;
+}
+
+.auth-title {
+  color: #fff;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  color: #888;
+  margin-bottom: 35px;
+  font-size: 0.95rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px 18px;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #FF5733; /* Orange Border on Focus */
+  background-color: #252525;
+}
+
+.auth-btn {
+  background: linear-gradient(135deg, #FF5733, #C70039); /* Orange Gradient */
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 15px;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 20px rgba(255, 87, 51, 0.4);
+}
+
+.auth-footer {
+  margin-top: 25px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.auth-link {
+  color: #FF5733;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}

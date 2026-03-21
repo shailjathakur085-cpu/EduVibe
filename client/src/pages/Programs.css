@@ -1,0 +1,101 @@
+.programs-page {
+  background-color: #000;
+  min-height: 100vh;
+  color: white;
+  padding-bottom: 50px;
+}
+
+.programs-header {
+  height: 250px;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.lang-icon-big {
+  font-size: 3rem;
+  color: #FF5733;
+  margin-bottom: 10px;
+}
+
+.programs-container {
+  max-width: 1000px;
+  margin: -40px auto 0;
+  background: white;
+  color: #333;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.table-heading {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  border-left: 5px solid #FF5733;
+  padding-left: 15px;
+}
+
+.programs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.programs-table th {
+  background-color: #f8f9fa;
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  font-weight: bold;
+}
+
+.programs-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.program-name {
+  font-weight: 500;
+}
+
+.btn-view {
+  background-color: #FF5733;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-view:hover {
+  background-color: #E64A19;
+  transform: scale(1.1);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  background: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button.active {
+  background-color: #FF5733;
+  color: white;
+  border-color: #FF5733;
+}

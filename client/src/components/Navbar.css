@@ -1,0 +1,156 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 5%;
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Halka sa shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+}
+
+.logo-icon {
+  color: #FF5733; /* Orange color */
+  font-size: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  font-weight: 500;
+}
+
+.nav-links li {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-links a {
+  color: #333;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #FF5733;
+}
+
+/* Dropdown Logic */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  padding: 10px 0;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f9f9f9;
+  color: #FF5733;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block; /* Hover karne par dikhega */
+}
+/* ... Upar ka CSS same rahega ... */
+
+/* --- AUTH BUTTONS CONTAINER --- */
+.auth-buttons {
+  display: flex;
+  gap: 15px; /* Login aur Register ke beech gap */
+  align-items: center;
+}
+
+/* 1. Login Button (Outline Style - Professional Look) */
+.btn-login {
+  color: #FF5733; /* Orange Text */
+  border: 2px solid #FF5733; /* Orange Border */
+  background-color: transparent;
+  padding: 10px 25px;
+  border-radius: 50px; /* Pill Shape */
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #FFF0EB; /* Hover par halka sa background */
+  transform: translateY(-2px);
+}
+
+/* 2. Register Button (Design Match: Solid Orange with Glow) */
+/* Yeh bilkul aapki 'Browse More' image jaisa dikhega */
+.btn-register {
+  background-color: #FF5733; /* Orange Background */
+  color: white;
+  border: none;
+  padding: 12px 30px; /* Thoda bada button */
+  border-radius: 50px; /* Pill Shape */
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+  /* GLOW EFFECT (Shadow) */
+  box-shadow: 0 10px 20px rgba(255, 87, 51, 0.3); 
+}
+
+.btn-register:hover {
+  background-color: #e04e2e;
+  transform: translateY(-3px); /* Hover par upar uthega */
+  box-shadow: 0 15px 25px rgba(255, 87, 51, 0.5); /* Shadow badh jayegi */
+}
+
+/* Mobile Responsive adjustment */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 15px;
+  }
+  
+  /* Mobile par buttons chhote ho jayenge ya menu mein chale jayenge */
+  .auth-buttons {
+     display: none; /* Abhi ke liye mobile pe hide kar rahe hain, baad mein hamburger menu banayenge */
+  }
+}
+/* --- Logout Button Style --- */
+.btn-logout {
+  background: transparent;
+  border: 1px solid #FF5733;
+  color: #FF5733;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.btn-logout:hover {
+  background-color: #FF5733;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 87, 51, 0.3);
+}
+
+/* User Name styling */
+.user-profile-section span {
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.5px;
+}

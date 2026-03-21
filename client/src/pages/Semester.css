@@ -1,0 +1,125 @@
+/* --- Semester.css --- */
+
+/* 1. Poora background Black karne ke liye */
+.semester-page {
+  background-color: #050505; /* Black Background */
+  min-height: 100vh;
+  padding-bottom: 50px;
+}
+
+/* 2. Header Section (Image wala) */
+.semester-header {
+  background: url('https://img.freepik.com/free-photo/smiling-young-male-student-holding-notebooks-looking-camera_171337-8628.jpg') no-repeat center center/cover;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Overlay taaki text saaf dikhe */
+.semester-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(255, 245, 245, 0.9); /* White Overlay */
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.semester-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #222;
+  text-transform: uppercase;
+}
+
+/* 3. Main Content (Notes Section) */
+.semester-content {
+  padding: 50px 10%;
+  text-align: center;
+}
+
+.sub-heading-red {
+  color: #FF4040; /* Red color text */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.main-heading-white {
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 60px;
+}
+
+/* 4. Grid System (Cards Layout) */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Desktop par 2 cards */
+  gap: 40px;
+}
+
+/* 5. Card Design (Black Box with Orange Border) */
+.subject-card {
+  background-color: #111; /* Dark Grey/Black Card */
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 30px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subject-card:hover {
+  border-color: #FF5733; /* Orange Border on Hover */
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  color: #FF5733;
+  margin-bottom: 20px;
+}
+
+.subject-card h3 {
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* 6. Buttons Grid (Unit 1, Unit 2...) */
+.units-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 buttons ek line mein */
+  gap: 15px;
+  width: 100%;
+}
+
+.btn-unit {
+  background-color: #FF5733; /* Orange Button */
+  color: white;
+  border: none;
+  padding: 8px 5px;
+  border-radius: 20px; /* Pill Shape */
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-unit:hover {
+  background-color: white;
+  color: #FF5733;
+}

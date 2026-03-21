@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Note Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f0f0f0; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; }
+        .debug-info { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 10px 0; }
+        .error { background: #f8d7da; color: #721c24; }
+        .success { background: #d4edda; color: #155724; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+        button:hover { background: #0056b3; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Note Data Debug Tool</h1>
+        
+        <div>
+            <button onclick="testUploads()">Test Uploads</button>
+            <button onclick="testNotes()">Test All Notes</button>
+            <input type="text" id="noteId" placeholder="Enter Note ID" style="width: 200px; padding: 8px; margin: 5px;">
+            <button onclick="testSingleNote()">Test Single Note</button>
+        </div>
+
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function showResults(title, data, isError = false) {
+            const resultsDiv = document.getElementById('results');
+            const className = isError ? 'debug-info error' : 'debug-info success';
+            
+            resultsDiv.innerHTML += `
+                <div class="${className}">
+                    <h3>${title}</h3>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                </div>
+            `;
+        }
+
+        async function testUploads() {
+            try {
+                const response = await fetch('http://localhost:8081/api/uploads');
+                const data = await response.json();
+                showResults('📁 Uploaded Files', data);
+            } catch (error) {
+                showResults('❌ Uploads Error', error.message, true);
+            }
+        }
+
+        async function testNotes() {
+            try {
+                const response = await fetch('http://localhost:8081/api/notes');
+                const data = await response.json();
+                showResults('📝 All Notes', data);
+            } catch (error) {
+                showResults('❌ Notes Error', error.message, true);
+            }
+        }
+
+        async function testSingleNote() {
+            const noteId = document.getElementById('noteId').value;
+            if (!noteId) {
+                showResults('❌ Error', 'Please enter a Note ID', true);
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:8081/api/notes/${noteId}`);
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showResults(`📄 Note ${noteId}`, data);
+                    
+                    // Test PDF URL if exists
+                    if (data.pdfUrl) {
+                        showResults('🔗 PDF URL Found', { url: data.pdfUrl });
+                        
+                        // Try to access PDF
+                        try {
+                            const pdfResponse = await fetch(data.pdfUrl, { method: 'HEAD' });
+                            showResults('📋 PDF Access Test', {
+                                status: pdfResponse.status,
+                                ok: pdfResponse.ok,
+                                url: data.pdfUrl
+                            });
+                        } catch (pdfError) {
+                            showResults('❌ PDF Access Error', pdfError.message, true);
+                        }
+                    } else {
+                        showResults('⚠️ No PDF', 'This note has no PDF URL', true);
+                    }
+                } else {
+                    showResults('❌ Note Error', data, true);
+                }
+            } catch (error) {
+                showResults('❌ Single Note Error', error.message, true);
+            }
+        }
+
+        // Auto-test on load
+        window.onload = function() {
+            testUploads();
+            testNotes();
+        };
+    </script>
+</body>
+</html>

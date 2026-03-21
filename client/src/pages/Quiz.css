@@ -1,0 +1,210 @@
+/* Container jo poori screen par content ko align karega */
+
+.quiz-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; 
+  min-height: 100vh;
+  padding-top: 130px !important; 
+  padding-bottom: 50px;
+  width: 100%;
+  position: relative;
+  overflow: hidden; 
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+}
+
+/* Ye background elements hain */
+.quiz-page-container::before,
+.quiz-page-container::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  z-index: 0;
+  filter: blur(80px);
+  opacity: 0.15;
+  animation: float 20s infinite alternate;
+}
+
+.quiz-page-container::before {
+  background: #ff5722;
+  top: -100px;
+  right: -100px;
+}
+
+.quiz-page-container::after {
+  background: #673ab7;
+  bottom: -100px;
+  left: -100px;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, 100px) scale(1.2); }
+  100% { transform: translate(-50px, 50px) scale(1); }
+}
+
+/* White Card Layout with better shadow and border */
+.quiz-box-main {
+  background: white;
+  width: 90%;
+  max-width: 650px;
+  padding: 40px;
+  border-radius: 20px;
+  /* Prominent colourful shadow */
+  box-shadow: 0 15px 35px rgba(255, 87, 34, 0.1);
+  text-align: center;
+  border: 1px solid rgba(255, 87, 34, 0.05);
+}
+
+/* Question Header (Sawaal 1/10) */
+.q-header {
+  margin-bottom: 30px;
+}
+
+.q-count {
+  color: #ff5722; /* EduVibe Orange Theme */
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.q-count span {
+  color: #999;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.q-text {
+  font-size: 1.7rem;
+  color: #2c3e50;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+/* Options Buttons Grid */
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile-first */
+  gap: 15px;
+}
+
+/* Desktop par 2 column layout */
+@media (min-width: 600px) {
+  .options-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.opt-button {
+  width: 100%;
+  padding: 18px 25px;
+  font-size: 1.05rem;
+  background-color: #fff;
+  /* Initial subtle border */
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+  /* Smooth transitions for all properties */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: #444;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect with subtle shadow and border color */
+.opt-button:hover:not(:disabled) {
+  border-color: #ff5722;
+  background-color: #fff8f5;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 87, 34, 0.1);
+  color: #ff5722;
+}
+
+/* Active/Correct/Wrong State Icons (Optional, logic needed in JS) */
+.opt-button.correct-opt::after {
+  content: '✓';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+.opt-button.wrong-opt::after {
+  content: '✗';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
+
+/* --- Colour States --- */
+
+/* Green color for correct answer */
+.opt-button.correct-opt {
+  background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%) !important;
+  color: white !important;
+  border-color: #43a047 !important;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3) !important;
+}
+
+/* Red color for wrong answer */
+.opt-button.wrong-opt {
+  background: linear-gradient(135deg, #ef5350 0%, #e53935 100%) !important;
+  color: white !important;
+  border-color: #e53935 !important;
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3) !important;
+}
+
+/* State management for buttons that weren't selected */
+.opt-button:disabled:not(.correct-opt):not(.wrong-opt) {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-color: #ddd;
+}
+
+/* Score Section */
+.score-area {
+  padding: 30px;
+}
+
+.score-area h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.score-area strong {
+  color: #ff5722;
+  font-size: 2.5rem;
+}
+
+.reset-btn {
+  /* Gradient orange button */
+  background: linear-gradient(135deg, #ff7043 0%, #ff5722 100%);
+  color: white;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 35px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+}
+
+.reset-btn:hover {
+  background: linear-gradient(135deg, #ff5722 0%, #e64a19 100%);
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 87, 34, 0.4);
+}

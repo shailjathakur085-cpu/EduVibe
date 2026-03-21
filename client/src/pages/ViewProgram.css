@@ -1,0 +1,632 @@
+/* =========================================
+   MODERN VIEW PROGRAM DESIGN
+   ========================================= */
+
+/* Page Layout */
+.view-program-page {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  padding: 20px 0;
+}
+
+/* Top Navigation Bar */
+.view-navbar {
+  background: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back-btn {
+  background: #FF5733;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #e64629;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 87, 51, 0.3);
+}
+
+.program-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 0;
+  font-weight: 700;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.copy-btn {
+  background: white;
+  color: #333;
+  border: 2px solid #e0e0e0;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.copy-btn:hover {
+  background: #FF5733;
+  color: white;
+  border-color: #FF5733;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 87, 51, 0.3);
+}
+
+/* Main Content Container */
+.program-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Code Section */
+.code-section {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+}
+
+.code-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-block {
+  padding: 30px;
+  background: #1e1e1e;
+  color: #f8f8f2;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.code-block pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Output Section */
+.output-section {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  overflow: hidden;
+  border: 1px solid #e8e8e8;
+}
+
+.output-header {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.toggle-output-btn {
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.toggle-output-btn:hover {
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-1px);
+}
+
+.output-block {
+  padding: 30px;
+  background: #f8f9fa;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.output-block pre {
+  margin: 0;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 500;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-size: 1.5rem;
+  color: #666;
+  background: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .view-navbar {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .program-title {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  .program-container {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 20px;
+  }
+  
+  .code-block, .output-block {
+    padding: 20px;
+    font-size: 0.85rem;
+  }
+  
+  .code-header, .output-header {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+}
+
+/* Banner Design */
+.program-banner {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1350&q=80');
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.banner-title {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.back-nav-btn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.back-nav-btn:hover { background: #FF5733; transform: scale(1.1); }
+
+/* Layout Side by Side */
+.main-viewer-content {
+  max-width: 1200px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  padding: 0 20px;
+}
+
+.box-label {
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.inner-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  min-height: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+  position: relative;
+  transition: all 0.4s ease; /* Hilne dhulne wala effect */
+}
+
+.inner-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Code Controls */
+.card-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ctrl-btn {
+  background: #fff;
+  border: 1px solid #333;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: 0.2s;
+}
+
+.ctrl-btn:hover { background: #f0f0f0; }
+
+.code-display {
+  color: #d81b60; /* Pinkish syntax color as per image */
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Output Styling */
+.output-placeholder {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ec407a;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.output-text {
+  font-family: monospace;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.animate-fade {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Footer as per image */
+.simple-footer {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-links span {
+  margin: 0 15px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.footer-links span:hover { opacity: 1; color: #FF5733; }
+.code-display {
+  white-space: pre-wrap;       /* Isse text automatic next line par jayega */
+  word-wrap: break-word;
+  max-height: 800px;           /* Height badha di taaki bada content dikhe */
+  overflow-y: auto;            /* Scrollbar aa jayega */
+  text-align: left;
+  padding: 20px;
+  line-height: 1.6;            /* Reading ke liye thoda gap */
+  font-family: 'Courier New', monospace;
+}
+/* --- NAYA NOTES DESIGN CSS --- */
+.notes-reader-wrapper {
+  background-color: #f4f7f6; /* Halka grey/white background */
+  min-height: 100vh;
+}
+
+.notes-top-bar {
+  background: white;
+  padding: 15px 50px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.notes-back-btn {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+}
+
+.notes-back-btn:hover { color: #FF5733; }
+
+.notes-subject-title { color: #FF5733; font-size: 1.4rem; }
+
+.notes-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding-bottom: 50px;
+}
+
+.notes-paper-card {
+  background: white;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+  position: relative;
+  min-height: 600px;
+}
+
+.notes-copy-action {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.notes-copy-action:hover { background: #e9ecef; }
+
+.notes-article-body { text-align: left; }
+
+.note-article-heading {
+  color: #FF5733;
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #FF5733;
+  display: inline-block;
+}
+
+.note-article-p {
+  color: #444;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-family: 'Segoe UI', sans-serif;
+}
+/* =========================================
+   NEW NOTES READER DESIGN (E-Book Style)
+   ========================================= */
+
+/* 1. Page Background (Light Grey for contrast) */
+.notes-reader-page {
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 2. Top Navigation Bar (Sticky) */
+.reader-navbar {
+  background-color: #ffffff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* Title in Navbar */
+.reader-title {
+  font-size: 1.3rem;
+  color: #222;
+  margin: 0;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+/* Buttons in Navbar (Back & Copy) */
+.reader-back-btn, .reader-copy-btn {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 8px 18px;
+  border-radius: 25px; /* Pill shape */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.reader-back-btn:hover, .reader-copy-btn:hover {
+  background-color: #FF5733; /* Brand Orange */
+  color: white;
+  border-color: #FF5733;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 87, 51, 0.2);
+}
+
+/* 3. Main Content Container */
+.reader-container {
+  max-width: 900px;
+  margin: 40px auto;
+  width: 90%;
+  flex-grow: 1;
+}
+
+/* 4. The White Paper Card */
+.paper-card {
+  background: #ffffff;
+  padding: 60px; /* Bada padding book feel ke liye */
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+  border: 1px solid #e1e4e8;
+  position: relative;
+}
+
+/* 5. Headings (CHAPTER / SECTION) */
+.doc-heading {
+  color: #FF5733; /* Orange Color */
+  font-size: 1.8rem;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #fff0eb; /* Halka orange underline */
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* First heading should not have huge top margin */
+.doc-heading:first-child {
+  margin-top: 0;
+}
+
+/* 6. Paragraph Text */
+.doc-paragraph {
+  color: #333;
+  font-size: 1.15rem;
+  line-height: 1.8; /* Lines ke beech mein gap */
+  margin-bottom: 18px;
+  text-align: justify; /* Text dono side se barabar */
+}
+
+/* 7. Mobile Responsive Design */
+@media (max-width: 768px) {
+  .reader-navbar {
+    padding: 15px 20px;
+  }
+  
+  .reader-title {
+    font-size: 1rem;
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .paper-card {
+    padding: 30px 20px; /* Mobile pe kam padding */
+  }
+
+  .doc-heading {
+    font-size: 1.4rem;
+  }
+
+  .doc-paragraph {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+/* --- Editor Mode Styles --- */
+.reader-save-btn {
+  background: #FF5733;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+}
+
+.reader-edit-btn {
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.notes-editor-textarea {
+  width: 100%;
+  min-height: 70vh;
+  padding: 20px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  resize: vertical;
+  background-color: #fcfcfc;
+}
+
+.notes-editor-textarea:focus {
+  border-color: #FF5733;
+}
