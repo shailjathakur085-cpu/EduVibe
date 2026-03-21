@@ -1,87 +1,44 @@
-.App {
-  text-align: center;
+/* Sabse upar screen fix karne ke liye */
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* --- Desktop Styles (Hamesha kaam karenge) --- */
-.App {
-  text-align: center;
-}
-
-/* 1. Body ko hilne se rokne ke liye */
 html, body {
   max-width: 100% !important;
   overflow-x: hidden !important;
-  position: relative;
   margin: 0;
   padding: 0;
 }
 
-/* --- Mobile View Fix (Sabse Powerful) --- */
+/* --- Mobile View Fix (768px se kam screen ke liye) --- */
 @media screen and (max-width: 768px) {
   
-  /* 2. Sidebar ko bilkul gayab karne ke liye (Sabse zaroori) */
-  .developer-sidebar, .sidebar, .sidebar-container { 
+  /* 1. Sidebar (Legends) ko mobile par hide karein */
+  .left-scroller { 
     display: none !important; 
   }
 
-  /* 3. Main content ko poori screen par fit karne ke liye */
-  .main-content, .home-container, .content-area, .container {
-    margin-left: 0 !important;
-    width: 100% !important;
-    padding: 15px !important;
+  /* 2. Main content ko poori screen par fit karein */
+  .main-layout {
     display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* 4. Navbar ko fix karein taaki wo screen se bahar na jaye */
-  .navbar-links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: 11px;
+  /* 3. Hero Section (Text wala part) ko center karein */
+  .hero-section {
+    width: 100% !important;
+    min-height: 50vh !important;
+    padding: 20px !important;
   }
 
-  /* 5. Text aur Images ko screen ke andar rakhne ke liye */
-  h1 {
-    font-size: 1.6rem !important;
-    word-wrap: break-word;
+  .hero-content h1 {
+    font-size: 1.6rem !important; /* Mobile par bada text chota karein */
+    line-height: 1.2 !important;
   }
 
-  img, .card {
-    max-width: 100% !important;
-    height: auto;
+  .hero-content p {
+    font-size: 0.9rem !important;
   }
 }
