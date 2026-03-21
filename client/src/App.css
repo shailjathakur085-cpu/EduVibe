@@ -92,4 +92,39 @@ html, body {
     max-width: 100% !important; /* Koi bhi photo screen se bahar nahi jayegi */
     height: auto;
   }
+}/* Jab screen mobile size (768px se kam) ki ho */
+@media screen and (max-width: 768px) {
+  /* 1. Main container ko column mein badlein */
+  .home-container, .main-layout, .container {
+    flex-direction: column !important; /* Sidebar upar aur content niche aa jayega */
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* 2. Sidebar ko mobile ke liye adjust karein */
+  .sidebar-container, .developer-sidebar {
+    width: 100% !important; /* Poori screen width lega */
+    margin-right: 0 !important;
+    position: static !important; /* Agar laptop par fixed hai toh static kar dein */
+    border-right: none !important;
+    border-bottom: 1px solid #ddd; /* Mobile par separator bottom mein hoga */
+    display: flex;
+    flex-direction: row; /* Mobile par sidebar items ek line mein hain */
+    overflow-x: auto; /* Agar items zyada hain toh slide honge */
+    padding: 10px !important;
+    justify-content: flex-start;
+  }
+
+  /* 3. Main content area ko fix karein */
+  .content-area, .main-content {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding: 15px !important;
+    box-sizing: border-box; /* Padding andar rakhne ke liye */
+  }
+
+  /* 4. Text ka size mobile ke liye chota karein */
+  .hero-text h1 {
+    font-size: 1.8rem !important; /* Text kat raha hai, ise chota karna zaroori hai */
+  }
 }
