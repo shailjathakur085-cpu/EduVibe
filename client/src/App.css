@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+/* Mobile View Fix */
+@media screen and (max-width: 768px) {
+  /* Sidebar ko hide karein */
+  .developer-sidebar, .sidebar { 
+    display: none !important; 
+  }
+
+  /* Main content ko fit karein */
+  .main-content, .home-container {
+    margin-left: 0 !important;
+    width: 100% !important;
+    padding: 15px !important;
+  }
+
+  /* Horizontal scroll rokne ke liye */
+  body, html {
+    overflow-x: hidden !important;
+  }
+}
