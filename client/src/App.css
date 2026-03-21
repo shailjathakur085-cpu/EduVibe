@@ -41,4 +41,39 @@ html, body {
   .hero-content p {
     font-size: 0.9rem !important;
   }
+}/* Mobile Content Full Width Fix */
+@media screen and (max-width: 768px) {
+  /* 1. Container ko poora failayein */
+  .eduvibe-container, .main-layout, .hero-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 2. Hero Overlay ko poori width dein */
+  .hero-overlay {
+    width: 100% !important;
+    min-height: 100vh !important; /* Poori screen ki height lega */
+    padding: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-size: cover !important; /* Laptop wali image poori dikhegi */
+  }
+
+  /* 3. Text ko thoda bada aur sundar banayein */
+  .hero-content {
+    width: 90% !important;
+    text-align: center !important;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem !important; /* "Your Ultimate Hub" wala text */
+    line-height: 1.2 !important;
+  }
+
+  .hero-content span {
+    font-size: 2.2rem !important; /* "Computer Science" wala text */
+  }
 }
