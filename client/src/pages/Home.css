@@ -113,3 +113,45 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
   box-shadow: 0 12px 20px rgba(255, 87, 34, 0.3);
   transform: translateY(-2px);
 }
+/* --- MOBILE FINAL FIX --- */
+@media screen and (max-width: 768px) {
+  /* 1. Layout ko row se column mein badlein */
+  .main-layout {
+    display: block !important; /* Flex hata diya taaki content niche aaye */
+    height: auto !important;
+    width: 100% !important;
+    overflow: visible !important;
+  }
+
+  /* 2. Sidebar (Left Scroller) ko mobile par hide karein */
+  .left-scroller {
+    display: none !important;
+  }
+
+  /* 3. Hero Section ko poori screen par failayein */
+  .hero-section {
+    width: 100% !important;
+    min-height: 100vh !important;
+    flex: none !important;
+  }
+
+  /* 4. Overlay ki padding kam karein taaki dabba na dikhe */
+  .hero-overlay {
+    padding-top: 60px !important; /* Laptop par 180px tha, mobile par 60px kaafi hai */
+    height: 100% !important;
+    align-items: center !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  /* 5. Font size mobile ke liye adjust karein */
+  .hero-content h1 {
+    font-size: 28px !important; /* Screen par fit aane ke liye */
+    width: 100% !important;
+  }
+
+  .hero-content p {
+    font-size: 15px !important;
+    margin: 15px 10px !important;
+    width: 100% !important;
+  }
+}
