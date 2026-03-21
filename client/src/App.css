@@ -36,27 +36,12 @@
     transform: rotate(360deg);
   }
 }
-/* Mobile View Fix */
-@media screen and (max-width: 768px) {
-  /* Sidebar ko hide karein */
-  .developer-sidebar, .sidebar { 
-    display: none !important; 
-  }
+/* --- Desktop Styles (Hamesha kaam karenge) --- */
+.App {
+  text-align: center;
+}
 
-  /* Main content ko fit karein */
-  .main-content, .home-container {
-    margin-left: 0 !important;
-    width: 100% !important;
-    padding: 15px !important;
-  }
-
-  /* Horizontal scroll rokne ke liye */
-  body, html {
-    overflow-x: hidden !important;
-  }
-}/* --- Screen ko hilne se rokne ke liye fix --- */
-
-/* 1. Body aur HTML ko fix karein */
+/* 1. Body ko hilne se rokne ke liye */
 html, body {
   max-width: 100% !important;
   overflow-x: hidden !important;
@@ -65,66 +50,38 @@ html, body {
   padding: 0;
 }
 
-/* 2. Navbar ko mobile par fit karein */
+/* --- Mobile View Fix (Sabse Powerful) --- */
 @media screen and (max-width: 768px) {
-  .navbar {
-    width: 100% !important;
-    overflow: hidden;
-  }
   
-  /* Agar navbar ke links bahar ja rahe hain */
-  .navbar-links {
-    display: flex;
-    flex-wrap: wrap; /* Links ko niche bhej dega */
-    justify-content: center;
-    font-size: 12px;
+  /* 2. Sidebar ko bilkul gayab karne ke liye (Sabse zaroori) */
+  .developer-sidebar, .sidebar, .sidebar-container { 
+    display: none !important; 
   }
 
-  /* 3. Cards aur Sections ko fix karein */
-  .main-content, .home-container, .section-container {
+  /* 3. Main content ko poori screen par fit karne ke liye */
+  .main-content, .home-container, .content-area, .container {
+    margin-left: 0 !important;
     width: 100% !important;
-    margin: 0 !important;
-    padding: 10px !important;
-    box-sizing: border-box; /* Padding ko andar rakhne ke liye */
+    padding: 15px !important;
+    display: block !important;
+  }
+
+  /* 4. Navbar ko fix karein taaki wo screen se bahar na jaye */
+  .navbar-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  /* 5. Text aur Images ko screen ke andar rakhne ke liye */
+  h1 {
+    font-size: 1.6rem !important;
+    word-wrap: break-word;
   }
 
   img, .card {
-    max-width: 100% !important; /* Koi bhi photo screen se bahar nahi jayegi */
+    max-width: 100% !important;
     height: auto;
-  }
-}/* Jab screen mobile size (768px se kam) ki ho */
-@media screen and (max-width: 768px) {
-  /* 1. Main container ko column mein badlein */
-  .home-container, .main-layout, .container {
-    flex-direction: column !important; /* Sidebar upar aur content niche aa jayega */
-    width: 100% !important;
-    padding: 0 !important;
-  }
-
-  /* 2. Sidebar ko mobile ke liye adjust karein */
-  .sidebar-container, .developer-sidebar {
-    width: 100% !important; /* Poori screen width lega */
-    margin-right: 0 !important;
-    position: static !important; /* Agar laptop par fixed hai toh static kar dein */
-    border-right: none !important;
-    border-bottom: 1px solid #ddd; /* Mobile par separator bottom mein hoga */
-    display: flex;
-    flex-direction: row; /* Mobile par sidebar items ek line mein hain */
-    overflow-x: auto; /* Agar items zyada hain toh slide honge */
-    padding: 10px !important;
-    justify-content: flex-start;
-  }
-
-  /* 3. Main content area ko fix karein */
-  .content-area, .main-content {
-    width: 100% !important;
-    margin-left: 0 !important;
-    padding: 15px !important;
-    box-sizing: border-box; /* Padding andar rakhne ke liye */
-  }
-
-  /* 4. Text ka size mobile ke liye chota karein */
-  .hero-text h1 {
-    font-size: 1.8rem !important; /* Text kat raha hai, ise chota karna zaroori hai */
   }
 }
