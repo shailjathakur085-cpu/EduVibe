@@ -113,45 +113,59 @@ body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
   box-shadow: 0 12px 20px rgba(255, 87, 34, 0.3);
   transform: translateY(-2px);
 }
-/* --- MOBILE FINAL FIX --- */
+/* --- FINAL FULL SCREEN MOBILE FIX --- */
 @media screen and (max-width: 768px) {
-  /* 1. Layout ko row se column mein badlein */
+  
+  /* 1. Main layout ko poori width dein */
   .main-layout {
-    display: block !important; /* Flex hata diya taaki content niche aaye */
+    display: block !important;
     height: auto !important;
-    width: 100% !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
     overflow: visible !important;
+    margin: 0 !important;
   }
 
-  /* 2. Sidebar (Left Scroller) ko mobile par hide karein */
+  /* 2. Sidebar ko hide hi rehne dein */
   .left-scroller {
     display: none !important;
   }
 
-  /* 3. Hero Section ko poori screen par failayein */
+  /* 3. Hero Section ko poori screen cover karne dein */
   .hero-section {
-    width: 100% !important;
+    width: 100vw !important;
     min-height: 100vh !important;
-    flex: none !important;
+    margin: 0 !important;
+    background-size: cover !important;
   }
 
-  /* 4. Overlay ki padding kam karein taaki dabba na dikhe */
+  /* 4. Overlay ko box se hata kar poora screen par failayein */
   .hero-overlay {
-    padding-top: 60px !important; /* Laptop par 180px tha, mobile par 60px kaafi hai */
+    padding-top: 40px !important; /* Content thoda upar lane ke liye */
+    width: 100% !important;
     height: 100% !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    display: flex !important;
+    justify-content: center !important;
     align-items: center !important;
-    background: rgba(255, 255, 255, 0.9) !important;
   }
 
-  /* 5. Font size mobile ke liye adjust karein */
+  /* 5. Content jo dabba ban raha tha use 100% width dein */
+  .hero-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 15px !important;
+    margin: 0 !important;
+  }
+
   .hero-content h1 {
-    font-size: 28px !important; /* Screen par fit aane ke liye */
+    font-size: 26px !important;
     width: 100% !important;
   }
 
   .hero-content p {
-    font-size: 15px !important;
-    margin: 15px 10px !important;
+    font-size: 16px !important;
     width: 100% !important;
+    margin: 15px 0 !important;
   }
 }
