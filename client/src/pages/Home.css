@@ -103,105 +103,85 @@ body {
   align-items: flex-start; /* Keeps content near the top */
   padding-top: 180px; 
 }
-
-.hero-content { 
-  text-align: center; 
-  max-width: 700px; 
-  padding: 0 20px;
-}
-
-.hero-content h1 { 
-  font-size: clamp(40px, 6vw, 55px); /* Automatically scales font size */
-  font-weight: 900; 
-  color: #1a1a1a; 
-  line-height: 1.1; 
-}
-
-.hero-content h1 span { 
-  color: #ff5722; 
-}
-
-.hero-content p { 
-  font-size: 19px; 
-  color: #444; 
-  margin: 20px 40px; 
-  line-height: 1.6;
-  max-width: 600px;
-}
-
-/* Hide scrollbar for Hero Section */
-.hero-section::-webkit-scrollbar {
-  display: none;
-}
-
-/* --- CTA BUTTON STYLES --- */
-.hero-btn {
-  background: #ff5722;
-  color: #fff;
-  padding: 15px 35px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 15px rgba(255, 87, 34, 0.2);
-  transition: 0.3s;
-}
-
-.hero-btn:hover {
-  background: #e64a19;
-  box-shadow: 0 12px 20px rgba(255, 87, 34, 0.3);
-  transform: translateY(-2px);
-}
-
-/* --- MOBILE RESPONSIVE FIX (Screens under 768px) --- */
+/* --- UPDATED MOBILE RESPONSIVE FIX --- */
 @media screen and (max-width: 768px) {
   
-  /* 1. Stacks layout vertically */
+  /* 1. Stacks everything vertically */
   .main-layout {
-    display: block !important;
+    display: flex !important;
+    flex-direction: column !important;
     height: auto !important;
     width: 100vw !important;
-    overflow: visible !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 
-  /* 2. Hide sidebar on mobile to focus on Hero content */
+  /* 2. Show Legends as a horizontal strip at the top */
   .left-scroller {
-    display: none !important;
-  }
-
-  /* 3. Hero Section occupies full screen */
-  .hero-section {
-    width: 100vw !important;
-    min-height: 100vh !important;
-    background-size: cover !important;
-  }
-
-  /* 4. Center content within the overlay */
-  .hero-overlay {
-    padding-top: 40px !important; 
+    display: block !important;
     width: 100% !important;
-    height: 100% !important;
-    background: rgba(255, 255, 255, 0.9) !important;
+    height: 140px !important;
+    border-right: none;
+    border-bottom: 2px solid #ff5722;
+    background: #fffaf9;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    order: 2; 
+  }
+
+  .scroll-track {
     display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    flex-direction: row !important; 
+    width: max-content;
+    animation: scrollHorizontal 15s linear infinite;
   }
 
-  /* 5. Adjust text sizes for small screens */
-  .hero-content {
+  @keyframes scrollHorizontal {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .dev-card {
+    min-width: 150px;
+    padding: 15px 10px;
+    border-right: 1px solid #f9f0ee;
+  }
+
+  /* 3. Hero Section settings */
+  .hero-section {
     width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 20px !important;
+    min-height: 70vh !important;
+    order: 3;
+  }
+
+  .hero-overlay {
+    padding-top: 30px !important;
+    align-items: center !important;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .hero-content {
+    max-width: 95% !important;
+    padding: 0 10px;
   }
 
   .hero-content h1 {
-    font-size: 28px !important;
+    font-size: 26px !important;
   }
 
   .hero-content p {
-    font-size: 16px !important;
-    margin: 15px 0 !important;
+    font-size: 15px !important;
+    margin: 15px auto !important;
+  }
+
+  /* 4. Navbar Fix: Scroll tabs horizontally */
+  nav, .navbar-container, .navbar {
+    width: 100% !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    display: flex !important;
+    padding: 10px 5px !important;
+    -webkit-overflow-scrolling: touch;
   }
 }
