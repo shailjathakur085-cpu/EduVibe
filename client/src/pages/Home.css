@@ -1,7 +1,6 @@
-/* --- GOOGLE FONTS IMPORT --- */
+/* --- GOOGLE FONTS --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
-/* --- GLOBAL STYLES --- */
 * { 
   margin: 0; 
   padding: 0; 
@@ -12,16 +11,15 @@ body {
   font-family: 'Poppins', sans-serif; 
   overflow-x: hidden; 
 }
-
 /* --- MAIN LAYOUT --- */
-.main-layout {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+.main-layout { 
+  display: flex; 
+  height: 100vh; 
+  width: 100vw; 
+  overflow: hidden; 
 }
 
-/* --- LEFT SCROLLER SECTION --- */
+/* --- LEFT SCROLLER (LEGENDS) --- */
 .left-scroller {
   width: 200px;
   background: #fffaf9;
@@ -44,7 +42,7 @@ body {
 .dev-card { 
   padding: 20px 10px; 
   text-align: center; 
-  border-bottom: 1px solid #f9f0ee;
+  border-bottom: 1px solid #f9f0ee; 
 }
 
 .avatar-ring {
@@ -91,32 +89,43 @@ body {
 
 /* --- MOBILE RESPONSIVE FIX --- */
 @media screen and (max-width: 768px) {
-  .main-layout {
-    flex-direction: column !important;
-    height: auto !important;
-    overflow-y: auto !important;
+  .main-layout { 
+    flex-direction: column !important; 
+    height: auto !important; 
+    overflow-y: auto !important; 
   }
 
-  .left-scroller {
-    width: 100% !important;
-    height: 140px !important;
-    border-right: none;
-    border-bottom: 2px solid #ff5722;
+  /* Navbar Horizontal Scroll (For Programs, Quiz, etc.) */
+  nav, .navbar, .navbar-container {
+    display: flex !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding: 10px !important;
+    gap: 15px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  nav::-webkit-scrollbar { display: none; }
+
+  /* Legends Horizontal Strip */
+  .left-scroller { 
+    width: 100% !important; 
+    height: 140px !important; 
+    border-right: none; 
+    border-bottom: 2px solid #ff5722; 
   }
 
-  .scroll-track {
-    flex-direction: row !important;
-    width: max-content;
-    animation: scrollHorizontal 15s linear infinite;
+  .scroll-track { 
+    flex-direction: row !important; 
+    width: max-content; 
+    animation: scrollHorizontal 15s linear infinite; 
   }
 
-  @keyframes scrollHorizontal {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+  @keyframes scrollHorizontal { 
+    0% { transform: translateX(0); } 
+    100% { transform: translateX(-50%); } 
   }
 
   .dev-card { min-width: 150px; border-right: 1px solid #eee; }
-  
   .hero-section { min-height: 70vh !important; }
   .hero-content h1 { font-size: 26px !important; }
 }
