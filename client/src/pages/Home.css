@@ -13,10 +13,10 @@ body {
   overflow-x: hidden; 
 }
 
-/* --- MAIN LAYOUT - Side-by-side container --- */
+/* --- MAIN LAYOUT --- */
 .main-layout {
-  display: flex;         /* Brings Left side and Right side together */
-  height: 100vh;        /* Full screen height */
+  display: flex;
+  height: 100vh;
   width: 100vw;
   overflow: hidden;
 }
@@ -36,7 +36,6 @@ body {
   animation: scrollVertical 20s linear infinite;
 }
 
-/* Vertical scrolling animation */
 @keyframes scrollVertical {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }
@@ -48,7 +47,6 @@ body {
   border-bottom: 1px solid #f9f0ee;
 }
 
-/* Profile image ring styling */
 .avatar-ring {
   width: 70px; 
   height: 70px; 
@@ -66,28 +64,12 @@ body {
   object-fit: cover; 
 }
 
-.dev-name { 
-  font-size: 13px; 
-  font-weight: 800; 
-  color: #333; 
-}
-
-.skill-text { 
-  display: block; 
-  color: #ff5722; 
-  font-size: 11px; 
-  font-weight: 400; 
-}
-
-.role-text { 
-  font-size: 11px; 
-  color: #777; 
-  margin-top: 2px; 
-}
+.dev-name { font-size: 13px; font-weight: 800; color: #333; }
+.skill-text { display: block; color: #ff5722; font-size: 11px; }
 
 /* --- RIGHT HERO SECTION --- */
 .hero-section {
-  flex: 1;              /* Takes up all remaining space */
+  flex: 1;
   background-image: url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=1600&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
@@ -100,38 +82,30 @@ body {
   background: rgba(255, 255, 255, 0.85);
   display: flex; 
   justify-content: center; 
-  align-items: flex-start; /* Keeps content near the top */
-  padding-top: 180px; 
+  align-items: center;
 }
-/* --- UPDATED MOBILE RESPONSIVE FIX --- */
+
+.hero-content { text-align: center; max-width: 700px; padding: 0 20px; }
+.hero-content h1 { font-size: 45px; font-weight: 900; color: #1a1a1a; }
+.hero-content h1 span { color: #ff5722; }
+
+/* --- MOBILE RESPONSIVE FIX --- */
 @media screen and (max-width: 768px) {
-  
-  /* 1. Stacks everything vertically */
   .main-layout {
-    display: flex !important;
     flex-direction: column !important;
     height: auto !important;
-    width: 100vw !important;
     overflow-y: auto !important;
-    overflow-x: hidden !important;
   }
 
-  /* 2. Show Legends as a horizontal strip at the top */
   .left-scroller {
-    display: block !important;
     width: 100% !important;
     height: 140px !important;
     border-right: none;
     border-bottom: 2px solid #ff5722;
-    background: #fffaf9;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    order: 2; 
   }
 
   .scroll-track {
-    display: flex !important;
-    flex-direction: row !important; 
+    flex-direction: row !important;
     width: max-content;
     animation: scrollHorizontal 15s linear infinite;
   }
@@ -141,47 +115,8 @@ body {
     100% { transform: translateX(-50%); }
   }
 
-  .dev-card {
-    min-width: 150px;
-    padding: 15px 10px;
-    border-right: 1px solid #f9f0ee;
-  }
-
-  /* 3. Hero Section settings */
-  .hero-section {
-    width: 100% !important;
-    min-height: 70vh !important;
-    order: 3;
-  }
-
-  .hero-overlay {
-    padding-top: 30px !important;
-    align-items: center !important;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.9) !important;
-  }
-
-  .hero-content {
-    max-width: 95% !important;
-    padding: 0 10px;
-  }
-
-  .hero-content h1 {
-    font-size: 26px !important;
-  }
-
-  .hero-content p {
-    font-size: 15px !important;
-    margin: 15px auto !important;
-  }
-
-  /* 4. Navbar Fix: Scroll tabs horizontally */
-  nav, .navbar-container, .navbar {
-    width: 100% !important;
-    overflow-x: auto !important;
-    white-space: nowrap !important;
-    display: flex !important;
-    padding: 10px 5px !important;
-    -webkit-overflow-scrolling: touch;
-  }
+  .dev-card { min-width: 150px; border-right: 1px solid #eee; }
+  
+  .hero-section { min-height: 70vh !important; }
+  .hero-content h1 { font-size: 26px !important; }
 }
